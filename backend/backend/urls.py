@@ -17,12 +17,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
-from signup.views import SignupViewSet
-
-router = routers.DefaultRouter()
-router.register(r'signup', SignupViewSet, basename='signup')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('heidicalls/', include(router.urls)),
+    path('heidicalls/', include('signup.urls')),
 ]

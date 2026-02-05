@@ -1,10 +1,20 @@
 from django.shortcuts import render
+from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
-from rest_framework import viewsets
-from .models import ClinicParent
 from .serializers import ClinicParentSerializer
+from rest_framework.response import Response
+from rest_framework import status
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.permissions import AllowAny
 
-class SignupViewSet(viewsets.ModelViewSet):
-    queryset = ClinicParent.objects.all()
-    serializer_class = ClinicParentSerializer
+
+@api_view(['POST'])
+@permission_classes([AllowAny])
+def signupView(request):
+    print('signupView received data:', request.data)
+    serializer = ClinicParentSerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
