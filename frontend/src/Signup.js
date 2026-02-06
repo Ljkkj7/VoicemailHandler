@@ -6,7 +6,7 @@ class SignupForm extends Component {
   render() {
     return (
       <div className="signup-form">
-        <h1>Voicemail Handler</h1>
+        <h1 className="signup-title">Register your practice</h1>
         {signupForm()}
       </div>
     );

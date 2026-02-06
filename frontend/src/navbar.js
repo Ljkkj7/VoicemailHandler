@@ -7,7 +7,7 @@ class Navbar extends Component {
     render() {
         return (
             <nav className="navbar">
-                <h1>Heidi Calls</h1>
+                <h1><Link to="/">Heidi Calls</Link></h1>
                 {hamburgerMenu()}
                 {navLinks()}
             </nav>
