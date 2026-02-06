@@ -38,6 +38,8 @@ function navLinks() {
 
 function toggleMenu() {
     const menu = document.querySelector('.nav-links');
+    const hamburger = document.querySelector('.hamburger-menu');
+    hamburger.animate([{ transform: 'rotate(0deg)' }, { transform: 'rotate(180deg)' }], { duration: 300, fill: 'forwards' });
     menu.classList.toggle('active');
 }
 
@@ -50,6 +52,9 @@ function handleHamburgerOutsideClick(event) {
     const menu = document.querySelector('.nav-links');
     const hamburger = document.querySelector('.hamburger-menu');
     if (!menu.contains(event.target) && !hamburger.contains(event.target)) {
+        if (menu.classList.contains('active')) {
+            hamburger.animate([{ transform: 'rotate(180deg)' }, { transform: 'rotate(0deg)' }], { duration: 300, fill: 'forwards' });
+        }
         menu.classList.remove('active');
     }
 }
