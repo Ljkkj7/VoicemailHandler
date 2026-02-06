@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 
 import './App.css';
 
-class App extends Component {
+class SignupForm extends Component {
   render() {
     return (
-      <div className="App">
+      <div className="signup-form">
         <h1>Voicemail Handler</h1>
         {signupForm()}
       </div>
@@ -73,4 +73,4 @@ function handleSignup(event) {
     });
 }
 
-export default App;
+export default SignupForm;
