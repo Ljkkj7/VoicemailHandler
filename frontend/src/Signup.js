@@ -6,7 +6,7 @@ class SignupForm extends Component {
   render() {
     return (
       <div className="signup-form">
-        <h1 className="signup-title">Register your practice</h1>
+        <h2 className="signup-title">Register your practice</h2>
         {signupForm()}
       </div>
     );
@@ -16,30 +16,37 @@ class SignupForm extends Component {
 function signupForm() {
   return (
     <form onSubmit={handleSignup}>
-      <label>
-        Name:
-        <input type="text" name="name" />
-      </label>
+      <div className="form-group-name">
+        <label htmlFor="name">Name:</label>
+        <input type="text" id="name" name="name" />
+      </div>
       <br />
-      <label>
-        Clinic Name:
-        <input type="text" name="clinic_name" />
-      </label>
-      <br />
-      <label>
-        Clinic Email:
-        <input type="email" name="clinic_email" />
-      </label>
-      <br />
-      <label>
-        Username:
-        <input type="text" name="username" />
-      </label>
-      <br />
-      <label>
-        Password:
-        <input type="password" name="password" />
-      </label>
+      <div className='form-group-grid'>
+        <div className="form-group">
+          <label htmlFor="clinic_name">
+            Clinic Name:
+            <input type="text" name="clinic_name" />
+          </label>
+        </div>
+        <div className="form-group">
+          <label htmlFor="clinic_email">
+            Clinic Email:
+            <input type="email" name="clinic_email" />
+          </label>
+        </div>
+        <div className="form-group">
+          <label htmlFor="username">
+            Username:
+            <input type="text" name="username" />
+          </label>
+        </div>
+        <div className="form-group">
+          <label htmlFor="password">
+            Password:
+            <input type="password" name="password" />
+          </label>
+        </div>
+      </div>
       <br />
       <input type="submit" value="Sign Up" />
     </form>
